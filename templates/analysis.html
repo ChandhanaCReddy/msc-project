@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analysis Result</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#0f172a;
+            padding:40px;
+            padding-top:90px;
+            color:white;
+        }
+
+        .top-navbar{
+            position:fixed;
+            top:0;
+            left:0;
+            width:95%;
+            background:#0f172a;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.2);
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .nav-links{
+            display:flex;
+            align-items:center;
+            gap:20px;
+        }
+
+        .nav-links a{
+            color:white;
+            text-decoration:none;
+            font-weight:500;
+        }
+
+        .nav-btn{
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:8px 15px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+        }
+
+        h1{
+            text-align:center;
+            color:white;
+            margin-bottom:30px;
+        }
+
+        h2{
+            color:white;
+        }
+
+        .card{
+            margin-top:20px;
+            padding:20px;
+            border-radius:18px;
+            background:rgba(59,130,246,0.12);
+            backdrop-filter:blur(10px);
+            box-shadow:0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .score{
+            font-size:40px;
+            font-weight:bold;
+            color:#06b6d4;
+            text-align:center;
+        }
+
+        .card ul{
+            padding-left:20px;
+        }
+
+        .card li{
+            margin-bottom:8px;
+        }
+
+        .selected{
+            color:#22c55e;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .shortlisted{
+            color:#f59e0b;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .rejected{
+            color:#ef4444;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .dashboard-btn{
+            display:block;
+            width:250px;
+            margin:30px auto;
+            text-align:center;
+            text-decoration:none;
+            padding:14px;
+            border-radius:10px;
+            color:white;
+            font-weight:bold;
+            background:linear-gradient(
+                135deg,
+                #3b82f6,
+                #06b6d4
+            );
+        }
+
+        .dashboard-btn:hover{
+            transform:translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+<div class="top-navbar">
+
+    <div class="logo">
+        Resume Screening System
+    </div>
+
+    <div class="nav-links">
+        <button onclick="history.back()" class="nav-btn">
+            ← Back
+        </button>
+
+        <a href="/profile">👤 Profile</a>
+
+        <a href="/logout">🚪 Logout</a>
+    </div>
+
+</div>
+<div class="container">
+
+    <h1>📊Resume Analysis Report</h1>
+    <h2>Candidate Information</h2>
+    <p><b>Name:</b> {{ details.name }}</p>
+
+    <p><b>Email:</b> {{ details.email }}</p>
+
+    <p><b>Phone:</b> {{ details.phone }}</p>
+    <div class="card">
+        <h2>Resume Score</h2>
+
+        <p class="score">{{ score }}%</p>
+
+        <h2>job match score</h2>
+        <p class="score">{{match_score}}%</p>
+    </div>
+
+    <div class="card">
+        <h2>Skills Found</h2>
+
+        <ul>
+        {% for skill in skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Missing Skills</h2>
+
+        <ul>
+        {% for skill in missing %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Final Decision</h2>
+
+        {% if decision == "Selected" %}
+            <p class="selected">{{ decision }}</p>
+
+        {% elif decision == "Shortlisted" %}
+            <p class="shortlisted">{{ decision }}</p>
+
+        {% else %}
+            <p class="rejected">{{ decision }}</p>
+        {% endif %}
+    </div>
+    <a href="/home" class="dashboard-btn">view dashboard</a>
+    <hr style="border: 1px solid rgba(255,255,255,0.1);
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style2.css') }}">
+</head>
+<body>
+
+    <div class="assessment-container">
+
+        <h1>Career Assessment</h1>
+
+        <form action="/analyze-career" method="POST">
+
+            <label>Name</label>
+            <input type="text" name="name">
+
+            <label>Career Stage</label>
+
+            <select name="stage">
+                <option>Student</option>
+                <option>Graduate</option>
+                <option>Professional</option>
+            </select>
+            <h3>Select Strengths</h3>
+
+            <div class="checkbox-group">
+                <label>Analytical Thinking</label>
+                <input type="checkbox" name="strengths" value="Analytical Thinking">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Leadership</label>
+                <input type="checkbox" name="strengths" value="Leadership">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Communication</label>
+                <input type="checkbox" name="strengths" value="Communication">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Technical Logic</label>
+                <input type="checkbox" name="strengths" value="Technical Logic">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Creativity</label>
+                <input type="checkbox" name="strengths" value="Creativity">
+            </div>
+
+
+            <h3>Select Skills</h3>
+
+            <div class="checkbox-group">
+                <label>Python</label>
+                <input type="checkbox" name="skills" value="Python">
+            </div>
+
+            <div class="checkbox-group">
+                <label>SQL</label>
+                <input type="checkbox" name="skills" value="SQL">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Flask</label>
+                <input type="checkbox" name="skills" value="Flask">
+            </div>
+
+            <div class="checkbox-group">
+                <label>UI UX</label>
+                <input type="checkbox" name="skills" value="UI UX">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Public Speaking</label>
+                <input type="checkbox" name="skills" value="Public Speaking">
+            </div>
+
+
+            <h3>Weaknesses</h3>
+
+            <div class="checkbox-group">
+                <label>Public Speaking Anxiety</label>
+                <input type="checkbox" name="weaknesses" value="Public Speaking Anxiety">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Coding Confidence</label>
+                <input type="checkbox" name="weaknesses" value="Coding Confidence">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Time Management</label>
+                <input type="checkbox" name="weaknesses" value="Time Management">
+            </div>
+
+
+            <h3>Interests</h3>
+
+            <div class="checkbox-group">
+                <label>AI</label>
+                <input type="checkbox" name="interests" value="AI">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Software Development</label>
+                <input type="checkbox" name="interests" value="Software Development">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Data Science</label>
+                <input type="checkbox" name="interests" value="Data Science">
+            </div>
+
+            <div class="checkbox-group">
+                <label>Cyber Security</label>
+                <input type="checkbox" name="interests" value="Cyber Security">
+            </div>
+
+            <br>
+
+            <button type="submit">
+                Analyze Career
+            </button>
+            
+        </form>
+    </div>
+</body>
+</html>

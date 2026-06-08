@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Profile</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='profile.css')}}">
+</head>
+<body>
+<div class="top-navbar">
+
+    <h2>candidate profile</h2>  
+    <p class="subtitle">complete your profile to get personalized career recommandation</p>
+
+    <div class="nav-links">
+        <button onclick="history.back()" class="nav-btn">
+            ← Back
+        </button>
+
+        <a href="/profile">👤 Profile</a>
+
+        <a href="/logout">🚪 Logout</a>
+    </div>
+
+</div>
+<div class="container">
+
+    <h2>Candidate Profile</h2>
+
+    <form action="/save_profile" method="post" enctype="multipart/form-data">
+
+        <label>Full Name</label>
+        <input type="text" id="name" name="name" value="{{profile[0] if profile else ''}}">
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" id="age" name="age" value="{{profile[1] if profile else ''}}">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select name="gender">
+                    <option value="">Select Gender</option>
+
+                    <option value="Male"
+                        {% if profile and profile[2] == 'Male' %}selected{% endif %}>
+                        Male
+                    </option>
+
+                    <option value="Female"
+                        {% if profile and profile[2] == 'Female' %}selected{% endif %}>
+                        Female
+                    </option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" name="phone" value="{{profile[3] if profile else ''}}">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email" name="email" value="{{profile[4] if profile else ''}}">
+            </div>
+
+        </div>
+
+        <label>Academic Details</label>
+        <textarea id="academic" name="academic_details" >{{profile[5] if profile else ''}}</textarea>
+
+        <label>Skills</label>
+        <textarea id="skills" name="skills" >{{profile[6] if profile else ''}}</textarea>
+
+        <label>Interests</label>
+        <textarea id="interests" name="interests">{{profile[7] if profile else ''}}</textarea>
+
+        <label>Career Preference</label>
+        <select id="career" name="career_preference">
+            <option value="Software Developer"
+            {% if profile and profile[8] == 'Software Developer' %}selected{% endif %}>
+            Software Developer
+            </option>
+
+            <option value="Data Analyst"
+            {% if profile and profile[8] == 'Data Analyst' %}selected{% endif %}>
+            Data Analyst
+            </option>
+
+            <option value="Data Scientist"
+            {% if profile and profile[8] == 'Data Scientist' %}selected{% endif %}>
+            Data Scientist
+            </option>
+
+            <option value="AI Engineer"
+            {% if profile and profile[8] == 'AI Engineer' %}selected{% endif %}>
+            AI Engineer
+            </option>
+
+            <option value="Web Developer"
+            {% if profile and profile[8] == 'Web Developer' %}selected{% endif %}>
+            Web Developer
+            </option>
+
+            <option value="Cyber Security"
+            {% if profile and profile[8] == 'Cyber Security' %}selected{% endif %}>
+            Cyber Security
+            </option>
+        </select>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Languages Known</label>
+                <input type="text" id="languages" name="languages" value="{{profile[9] if profile else ''}}"
+                    placeholder="English, Tamil">
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Location</label>
+                <input type="text" id="location" name="location" value="{{profile[10] if profile else ''}}">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>LinkedIn URL</label>
+                <input type="url" id="linkedin"name="linkedin" value="{{profile[11] if profile else ''}}">
+            </div>
+
+            <div class="form-group">
+                <label>GitHub URL</label>
+                <input type="url" id="github" name="github" value="{{profile[12] if profile else ''}}">
+            </div>
+
+        </div>
+
+        <label>Profile Photo</label>
+        <input type="file" id="photo" name="photo" value="{{profile[13] if profile else ''}}"
+               accept="image/*">
+        <label>Upload Resume (PDF)</label>
+        <input type="file" id="resume" name="resume" value="{{profile[4] if profile else ''}}"
+               accept=".pdf">
+        <button type="submit">
+            Save Profile
+        </button>
+    </form>
+</div>
+<script src="{{ url_for('static',filename='profile.js')}}"></script>
+</body>
+</html>

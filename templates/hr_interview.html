@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HR Interview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='interview.css') }}"> 
+</head>
+<body>
+<div class="container">
+    <h1>HR Interview</h1>
+    <form action="/evaluate_hr" method="POST">
+
+        <div class="question">
+            <label>Tell me about yourself</label>
+            <textarea name="q1" rows="4"></textarea>
+        </div>
+        <div class="question">
+            <label>Why should we hire you?</label>
+            <textarea name="q1" rows="4"></textarea>
+        </div>
+        <div class="question">
+            <label>What are your strengths?</label>
+            <textarea name="q1" rows="4"></textarea>
+        </div>
+        <div class="question">
+            <label>What are your weaknesses?</label>
+            <textarea name="q1" rows="4"></textarea>
+        </div>
+    
+
+        <br><br>
+
+        <button type="submit">
+            Submit HR Interview
+        </button>
+
+    </form>
+</div>
+</body>
+</html>

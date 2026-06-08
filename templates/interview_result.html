@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <title>interview result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='interview.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Interview Completed</h1>
+
+        <p class="score">Your Score: {{ score }}%</p>
+
+        <a href="/home" class="dashboard-btn">
+            Back To Dashboard
+        </a>
+    </div>
+</body>

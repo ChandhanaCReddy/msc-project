@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>hrresult</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='interview.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>HR Interview Completed</h1>
+
+            <p class="score">Your HR Score: {{ score }}%</p>
+
+            <a href="/home" class="dashboard-btn">
+                Back To Dashboard
+            </a>
+        </div>
+    </body>
+</html>

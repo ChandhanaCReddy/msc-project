@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Report</title>
+    <style>
+        .report-box{
+            white-space: pre-wrap;
+            line-height: 1.8;
+            padding: 20px;
+            background: #1f2937;
+            color: white;
+            border-radius: 12px;
+        }
+        .report-container{
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .report-content{
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        h2{
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .nav-links{
+            display:flex;
+            align-items: center;
+            gap:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="report">
+
+<h1>AI Career Report</h1>
+<div class="nav-links">
+    <button onclick="history.back()" class="nav-btn">
+        ← Back
+    </button>
+</div>
+<div class="report-box">
+{{ result|safe}}
+</div>
+
+<a href="/">
+    Back
+</a>
+
+</div>
+
+</body>
+
+</html>

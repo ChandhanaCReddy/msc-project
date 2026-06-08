@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Hero Section -->
+    <div class="hero-card">
+        
+        <div class="top-right-icons">
+             <a href="/profile" class="icon-btn">
+                 <i class="fa-solid fa-user"></i>
+            </a>
+             <a href="/logout" class="icon-btn">
+                 <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+        </div>
+    
+        <div class="badge">
+            ✨ Powered by NLP Engine
+        </div>
+        <div class="hero-content">
+
+        <h1>
+            Welcome Back,
+            <span id="username">{{ name }}</span>!
+        </h1>
+
+        <p>
+            Your career advisor center is ready. Upload resumes,
+            practice interviews and track your progress.
+        </p>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h4>Readiness Index</h4>
+            <div class="score">{{ readiness }}%</div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ readiness }}%"></div>
+            </div>
+
+            <p>Overall career readiness.</p>
+        </div>
+
+        <div class="stat-card">
+            <h4>Resume Score</h4>
+            <div class="score">{{ resume_score }}</div>
+
+            <div class="progress-bar">
+                <div class="progress amber"
+                     style="width: {{ resume_score }}%">
+                </div>
+            </div>
+
+            <p>{{ resume_name }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h4>Interview Score</h4>
+            <div class="score">{{ interview_score }}</div>
+
+            <div class="progress-bar">
+                <div class="progress green"
+                     style="width: {{ interview_score }}%">
+                </div>
+            </div>
+
+            <p>Mock interview results</p>
+        </div>
+
+        <div class="stat-card">
+            <h4>Profile Completion</h4>
+            <div class="score">{{ profile_completion }}%</div>
+
+            <div class="progress-bar">
+                <div class="progress purple"
+                     style="width: {{ profile_completion }}%">
+                </div>
+            </div>
+
+            <p>Profile information completed</p>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="section-title">
+        Navigation Hub
+    </div>
+
+    <div class="nav-grid">
+
+        <button onclick="goTo('/upload')">
+            📄 Upload Resume
+        </button>
+
+        <button onclick="goTo('/analysis')">
+            📊 Resume Analysis
+        </button>
+        
+        <button onclick="goTo('/career_analysis')">
+        <a href="/career_analysis" class="nav-btn">
+            🎯 Career Analysis
+        </a>
+        </button>
+
+        <button onclick="goTo('/interview')">
+            🧠 Mock Interview
+        </button>
+
+         <button onclick="goTo('/assessment')">
+            🧠 career Assessment
+        </button>
+        <button onclick="goTo('/profile')">
+            👤 Manage Profile
+        </button>
+
+    </div>
+
+    <!-- Checklist -->
+    <div class="checklist-card">
+
+        <h3>🏆 Pre-Employment Checklist</h3>
+
+        <div class="checklist-grid">
+
+            <div class="check-box">
+                <h4>Baseline Tasks</h4>
+
+                <ul>
+                    <li>✔ Complete Career Preferences</li>
+                    <li>✔ Upload Resume</li>
+                </ul>
+            </div>
+
+            <div class="check-box">
+                <h4>Evaluation Tasks</h4>
+
+                <ul>
+                    <li>✔ Resume Screening</li>
+                    <li>✔ Mock Interview</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+
+</body>
+</html>

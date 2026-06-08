@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login & Signup form </title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
+        
+    </head>
+    <body>
+        <div id="container">
+            <!-- Login -->
+            <div class="login">
+                <div class="content">
+                    <h1>Log In</h1>
+                    <form action="/login" method="post">
+                        <input type="email" placeholder="email" name="email"/>
+                        <input type="password" placeholder="password" name="password"/>
+                        <span class="clearfix"></span>
+                        <button type="submit">Log In</button>
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Front Page -->
+            <div class="page front">
+                <div class="content">
+            
+                    <h1>Hello, friend</h1>
+                    <p>Enter your personal details and start journey with us</p>
+
+                    <button id="register">
+                        Register
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Back Page -->
+            <div class="page back">
+                <div class="content">
+                    <h1>Welcome Back!</h1>
+                    <p>
+                        To keep connected with us please login with your
+                        personal info
+                    </p>
+
+                    <button id="login">
+                        <i class="fa-solid fa-arrow-left"></i> Log In
+                    </button>
+                </div>
+            </div>
+
+            <!-- Register -->
+            <div class="register" >
+                <div class="content">
+                    <h1>Sign Up</h1>
+                    <form action="/register" method ="post">
+                        <input type="text" placeholder="name" name="username" required>
+                        <input type="email" placeholder="email" name="email" required>
+                        <input type="password" placeholder="password" name="password" required>
+                        <span class="clearfix"></span>
+                        <button type="submit">next</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
+</html>

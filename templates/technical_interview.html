@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mock Interview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='interview.css') }}">
+</head>
+
+<body>
+
+<h1>Technical Interview</h1>
+
+{% for q in questions %}
+
+<div>
+
+    <h3>{{ q }}</h3>
+
+    <textarea rows="4"></textarea>
+
+</div>
+
+<br>
+
+{% endfor %}
+
+<form action="/evaluate_interview" method="POST">
+
+    {% for q in questions %}
+        <h3>{{ q }}</h3>
+        <textarea name="answers" rows="4"></textarea>
+        <br><br>
+    {% endfor %}
+
+    <button type="submit">
+        Submit Interview
+    </button>
+
+</form>
+</body>
+</html>
