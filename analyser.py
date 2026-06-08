@@ -9,12 +9,14 @@ def analyze_resume(skills):
         "git"
     ]
 
+    skills_text = " ".join(skills).lower()
+
     matched = 0
     missing = []
 
     for skill in required_skills:
 
-        if skill in skills:
+        if skill.lower() in skills_text:
             matched += 1
         else:
             missing.append(skill)

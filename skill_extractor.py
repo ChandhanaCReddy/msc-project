@@ -1,24 +1,27 @@
+import spacy
+
+nlp = spacy.load("en_core_web_sm")
+
 def extract_skills(text):
 
-    skills_db = [
-        "python",
-        "java",
-        "sql",
-        "html",
-        "css",
-        "javascript",
-        "flask",
-        "machine learning",
-        "git"
-    ]
+    doc = nlp(text)
 
-    found_skills = []
+    skills = set()
 
-    text = text.lower()
+    for chunk in doc.noun_chunks:
 
-    for skill in skills_db:
+        phrase = chunk.text.strip()
 
-        if skill in text:
-            found_skills.append(skill)
+        if (
+            len(phrase.split()) <= 4
+            and len(phrase) > 2
+        ):
+            skills.add(phrase)
 
-    return found_skills
+    for ent in doc.ents:
+
+        if ent.label_ in ["ORG", "PRODUCT"]:
+
+            skills.add(ent.text.strip())
+
+    return list(skills)

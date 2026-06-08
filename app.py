@@ -154,7 +154,9 @@ def upload_resume():
     text = extract_text(file)
 
     details = extract_resume_details(text)
-    skills = details["skills"]
+    skills = extract_skills(text)
+    details["skills"] = skills
+    print("EXTRACTED SKILLS =", skills)
     score, missing = analyze_resume(skills)
     decision=get_decision(score)
     session['resume_score']=score

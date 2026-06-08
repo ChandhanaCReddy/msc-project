@@ -15,7 +15,6 @@ def extract_resume_details(text):
         "organizations": [],
         "skills": []
     }
-    # -------- Name --------
 
     lines = text.split("\n")
 
@@ -35,21 +34,19 @@ def extract_resume_details(text):
         ):
             details["name"] = line.title()
             break
-    # -------- Email --------
+
     email_pattern = r'[\w\.-]+@[\w\.-]+\.\w+'
     emails = re.findall(email_pattern, text)
 
     if emails:
         details["email"] = emails[0]
 
-    # -------- Phone --------
     phone_pattern = r'\+?\d[\d\-\s]{8,15}\d'
     phones = re.findall(phone_pattern, text)
 
     if phones:
         details["phone"] = phones[0]
 
-    # -------- Organizations --------
     for ent in doc.ents:
 
         if ent.label_ == "ORG":
@@ -57,7 +54,6 @@ def extract_resume_details(text):
             if ent.text not in details["organizations"]:
                 details["organizations"].append(ent.text)
 
-    # -------- Education --------
     education_keywords = [
         "b.tech",
         "b.e",
@@ -76,32 +72,5 @@ def extract_resume_details(text):
 
         if edu in text_lower:
             details["education"].append(edu.upper())
-
-    # -------- Skills --------
-    skills_db = [
-
-        "python",
-        "java",
-        "sql",
-        "html",
-        "css",
-        "javascript",
-        "react",
-        "flask",
-        "django",
-        "machine learning",
-        "deep learning",
-        "data analysis",
-        "power bi",
-        "excel",
-        "git",
-        "aws",
-        "docker"
-    ]
-
-    for skill in skills_db:
-
-        if skill.lower() in text_lower:
-            details["skills"].append(skill)
 
     return details
